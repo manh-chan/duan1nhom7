@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="15dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:background="@drawable/button_back">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center"
+                android:id="@+id/img_sp"
+                android:layout_margin="3dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_weight="10">
+                <TextView
+                    android:id="@+id/tv_ma_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Ma Shan Pham: "/>
+                <TextView
+                    android:id="@+id/tv_ma_nhacc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Ma nha Cung Cap"/>
+                <TextView
+                    android:id="@+id/tv_ma_nh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Ma Nganh Hang"/>
+                <TextView
+                    android:id="@+id/tv_ten_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Ten San Pham"/>
+                <TextView
+                    android:id="@+id/tv_gianhap_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Gia Nhap San Pham"/>
+                <TextView
+                    android:id="@+id/tv_giaban_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Gia Ban San Pham"/>
+                <TextView
+                    android:id="@+id/tv_soluong_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="so luong san pham"/>
+                <TextView
+                    android:id="@+id/tv_trangthai_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Trang Thai"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="40dp"
+                android:id="@+id/imgDeleteLS"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_xoa"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
