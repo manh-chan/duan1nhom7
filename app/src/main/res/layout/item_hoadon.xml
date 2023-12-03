@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="15dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:background="@drawable/button_back">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="10"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_ma_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ma Hoa Don:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_manv_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ma Nhan Vien:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_makh_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ma Khach Hang:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_thoigian_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thoi Gian: "
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tv_soluong_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="So luong hoa don:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_khuyenmai_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Khuyen Mai Hoa don:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_tongtien_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tong Tien:"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgDeleteLS"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_xoa" />
+
+                <ImageView
+                    android:id="@+id/imgCTHoaDon"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/icon_qlhoadon" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
