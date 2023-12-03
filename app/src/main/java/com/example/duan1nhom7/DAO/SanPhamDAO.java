@@ -21,6 +21,7 @@ public class SanPhamDAO {
 
     public static long insert(SanPham obj) {
         ContentValues values = new ContentValues();
+        values.put("maSanPham", obj.getMa_sp());
         values.put("maNhaCC", obj.getMa_nhacc());
         values.put("maNganhHang", obj.getMa_nh());
         values.put("ten_sp", obj.getTen_sp());
@@ -47,7 +48,7 @@ public class SanPhamDAO {
         return db.delete("SanPham", "maSanPham = ?", new String[]{String.valueOf(id)});
     }
 
-    public List<SanPham> getAll() {
+    public static List<SanPham> getAll() {
         String sql = "SELECT * FROM SanPham";
         return getData(sql);
     }
@@ -58,11 +59,11 @@ public class SanPhamDAO {
         if (!list.isEmpty()) {
             return list.get(0);
         }
-        return null; // Trả về null nếu không tìm thấy dữ liệu
+        return null;// Trả về null nếu không tìm thấy dữ liệu
     }
 
     @SuppressLint("Range")
-    private List<SanPham> getData(String sql, String... selectionArgs) {
+    private static List<SanPham> getData(String sql, String... selectionArgs) {
         List<SanPham> list = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, selectionArgs);
 

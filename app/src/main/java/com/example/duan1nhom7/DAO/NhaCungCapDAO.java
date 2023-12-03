@@ -14,14 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NhaCungCapDAO {
-    private SQLiteDatabase db;
+    private static SQLiteDatabase db;
     public NhaCungCapDAO (Context context) {
         DBHelper dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
     }
 
-    public long insert(NhaCungCap obj) {
+    public static long insert(NhaCungCap obj) {
         ContentValues values = new ContentValues();
+        values.put("maNhaCC", obj.getMa_nhacc());
         values.put("ten_nhacc", obj.getTen_nhacc());
         values.put("sdt_nhacc", obj.getSdt_nhacc());
         values.put("diachi_nhacc", obj.getDiachi_nhacc());
@@ -29,7 +30,7 @@ public class NhaCungCapDAO {
         return db.insert("NhaCungCap", null, values);
     }
 
-    public long update(NhaCungCap obj) {
+    public static long update(NhaCungCap obj) {
         ContentValues values = new ContentValues();
         values.put("ten_nhacc", obj.getTen_nhacc());
         values.put("sdt_nhacc", obj.getSdt_nhacc());
@@ -38,7 +39,7 @@ public class NhaCungCapDAO {
         return db.update("NhaCungCap", values, "maNhaCC = ?", new String[]{String.valueOf(obj.getMa_nhacc())});
     }
 
-    public long delete(String id) {
+    public static long delete(String id) {
         return db.delete("NhaCungCap", "maNhaCC = ?", new String[]{String.valueOf(id)});
     }
 

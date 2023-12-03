@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
-    private SQLiteDatabase db;
+    private static SQLiteDatabase db;
 
     public AdminDAO(Context context) {
         DBHelper dbHelper = new DBHelper(context);
@@ -23,16 +23,21 @@ public class AdminDAO {
     public long insert(Admin obj) {
         ContentValues values = new ContentValues();
         values.put("maAdmin", obj.getMa_admin());
-        values.put("hoTen_admin", obj.getHoten_admin());
+        values.put("hoten_admin", obj.getHoten_admin());
         values.put("email_admin", obj.getEmail_admin());
         values.put("sdt_admin", obj.getSdt_admin());
         values.put("matkhau_admin", obj.getMatkhau_admin());
         return db.insert("Admin", null, values);
     }
 
+//    maAdmin TEXT PRIMARY KEY, " +
+//            "hoTen_admin TEXT NOT NULL, " +
+//            "email_admin TEXT NOT NULL, " +
+//            "sdt_admin TEXT NOT NULL, " +
+//            "matkhau_admin TEXT NOT NULL)";
     public long updatePass(Admin obj) {
         ContentValues values = new ContentValues();
-        values.put("hoTen_admin", obj.getHoten_admin());
+        values.put("hoten_admin", obj.getHoten_admin());
         values.put("email_admin", obj.getEmail_admin());
         values.put("sdt_admin", obj.getSdt_admin());
         values.put("matkhau_admin", obj.getMatkhau_admin());
@@ -43,7 +48,7 @@ public class AdminDAO {
         return db.delete("Admin", "maAdmin = ?", new String[]{String.valueOf(id)});
     }
 
-    public List<Admin> getAll() {
+    public static List<Admin> getAll() {
         String sql = "SELECT * FROM Admin";
         return getData(sql);
     }
@@ -51,12 +56,15 @@ public class AdminDAO {
     public Admin getID(String id) {
         String sql = "SELECT * FROM Admin WHERE maAdmin=?";
         List<Admin> list = getData(sql, id);
-        return list.get(0);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        }
+        return null;
     }
 
     // check login
     public int checkLogin(String id, String password) {
-        String sql = "SELECT * FROM Admin WHERE maAdmin=? AND matKhau_admin=?";
+        String sql = "SELECT * FROM Admin WHERE maAdmin=? AND matkhau_admin=?";
         List<Admin> list = getData(sql, id, password);
         if (list.size() == 0) {
             return -1;
@@ -65,13 +73,13 @@ public class AdminDAO {
     }
 
     @SuppressLint("Range")
-    private List<Admin> getData(String sql, String... selectionArgs) {
+    private static List<Admin> getData(String sql, String... selectionArgs) {
         List<Admin> list = new ArrayList<>();
         Cursor cursor = db.rawQuery(sql, selectionArgs);
         while (cursor.moveToNext()) {
             Admin obj = new Admin();
             obj.setMa_admin(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maAdmin"))));
-            obj.setHoten_admin(cursor.getString(cursor.getColumnIndex("hoTen_admin")));
+            obj.setHoten_admin(cursor.getString(cursor.getColumnIndex("hoten_admin")));
             obj.setEmail_admin(cursor.getString(cursor.getColumnIndex("email_admin")));
             obj.setSdt_admin(cursor.getString(cursor.getColumnIndex("sdt_admin")));
             obj.setMatkhau_admin(cursor.getString(cursor.getColumnIndex("matkhau_admin")));

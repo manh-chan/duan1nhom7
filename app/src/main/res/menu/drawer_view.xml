@@ -2,6 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_trangchu"
+            android:icon="@drawable/ic_home"
+            android:title="Trang Chủ"/>
         <item android:id="@+id/nav_quanlycv"
             android:icon="@drawable/quanlycongviec"
             android:title="Quản lý công việc"/>
@@ -17,6 +20,11 @@
         <item android:id="@+id/nav_quanlynh"
             android:icon="@drawable/icon_qlnganhhang"
             android:title="Quản lý ngành hàng"/>
+        <item android:id="@+id/sub_Logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Đăng xuất"
+        />
+
     </group>
     <!-- Add a placeholder item for the logo -->
     <item

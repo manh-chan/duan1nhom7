@@ -12,16 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Duan1nhom7"
         tools:targetApi="31">
-
+        <activity
+            android:name=".FragmentHoaDonCT"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentHoaDon"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentCongViec"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentHanSuDung"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentQuanLyKH"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentQuanLyNV"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentNganhHang"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentNhaCC"
+            android:exported="false" />
         <activity
             android:name=".Trangchu"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
-            android:name="FragmentSanPham"
-            android:exported="true" >
-
-        </activity>
+            android:name=".FragmentSanPham"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -33,9 +53,7 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

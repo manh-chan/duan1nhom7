@@ -14,31 +14,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NganhHangDAO {
-    private SQLiteDatabase db;
+    private static SQLiteDatabase db;
     public NganhHangDAO(Context context) {
         DBHelper dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
     }
 
-    public long insert(NganhHang obj) {
+    public static long insert(NganhHang obj) {
         ContentValues values = new ContentValues();
+        values.put("maNganhHang", obj.getMa_nh());
         values.put("ten_nh", obj.getTen_nh());
-        values.put("trangthai_sp", obj.getTrangthai_nh());
+        values.put("trangthai_nh", obj.getTrangthai_nh());
         return db.insert("NganhHang", null, values);
+
     }
 
-    public long update(NganhHang obj) {
+    public static long update(NganhHang obj) {
         ContentValues values = new ContentValues();
         values.put("ten_nh", obj.getTen_nh());
-        values.put("trangthai_sp", obj.getTrangthai_nh());
+        values.put("trangthai_nh", obj.getTrangthai_nh());
         return db.update("NganhHang", values, "maNganhHang = ?", new String[]{String.valueOf(obj.getMa_nh())});
     }
 
-    public long delete(String id) {
+    public static long delete(String id) {
         return db.delete("NganhHang", "maNganhHang = ?", new String[]{String.valueOf(id)});
     }
 
-    public List<NganhHang> getAll() {
+    public static List<NganhHang> getAll() {
         String sql = "SELECT * FROM NganhHang";
         return getData(sql);
     }
@@ -56,7 +58,7 @@ public class NganhHangDAO {
     }
 
     @SuppressLint("Range")
-    private List<NganhHang> getData(String sql, String... selectionArgs) {
+    private static List<NganhHang> getData(String sql, String... selectionArgs) {
         List<NganhHang> list = new ArrayList<>();
 
         try (Cursor cursor = db.rawQuery(sql, selectionArgs)) {

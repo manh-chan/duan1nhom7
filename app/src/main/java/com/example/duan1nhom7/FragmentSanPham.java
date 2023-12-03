@@ -11,6 +11,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,9 +27,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.duan1nhom7.Adapter.AdapterSanPham;
+import com.example.duan1nhom7.Adapter.AdminSpinnerAdapter;
+import com.example.duan1nhom7.Adapter.NganhHangSpinnerAdapter;
+import com.example.duan1nhom7.Adapter.NhaCCSpinnerAdapter;
+import com.example.duan1nhom7.DAO.AdminDAO;
 import com.example.duan1nhom7.DAO.NganhHangDAO;
 import com.example.duan1nhom7.DAO.NhaCungCapDAO;
 import com.example.duan1nhom7.DAO.SanPhamDAO;
+import com.example.duan1nhom7.Model.Admin;
 import com.example.duan1nhom7.Model.NganhHang;
 import com.example.duan1nhom7.Model.NhaCungCap;
 import com.example.duan1nhom7.Model.SanPham;
@@ -53,9 +59,9 @@ public class FragmentSanPham extends Fragment {
     Dialog dialog;
     ImageView btn_xoa,img_sp;
 
-    EditText ed_ma_sp, ed_manhacc_sp,ed_manh_sp,ed_gianhap_sp,ed_giaban_sp,ed_soluong_sp,ed_trangthai_sanpham;
+    EditText ed_ma_sp,ed_gianhap_sp,ed_giaban_sp,ed_soluong_sp,ed_trangthai_sanpham;
     Button btnSave, btnCancel;
-    Spinner spin_ten_sp;
+    Spinner spin_ten_sp ,spin_manhacc_sp , spin_manh_sp;
 
     ArrayList<NhaCungCap> listNhaCungCap;
     ArrayList<NganhHang> listNganhhang;
@@ -63,7 +69,9 @@ public class FragmentSanPham extends Fragment {
     NganhHangDAO nganhHangDAO;
     NhaCungCap nhaCungCap;
     NganhHang nganhHang;
-    int maLoaiSach, position;
+    NhaCCSpinnerAdapter nhaCCSpinnerAdapter;
+    NganhHangSpinnerAdapter nganhHangSpinnerAdapter;
+    int  position,maNhaCC,maNH;
 
     private SearchView searchView;
 
@@ -179,8 +187,8 @@ public class FragmentSanPham extends Fragment {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_them_sp);
         ed_ma_sp = dialog.findViewById(R.id.ed_ma_sp);
-        ed_manhacc_sp = dialog.findViewById(R.id.ed_manhacc_sp);
-        ed_manh_sp = dialog.findViewById(R.id.ed_manh_sp);
+        spin_manhacc_sp = dialog.findViewById(R.id.spin_manhacc_sp);
+        spin_manh_sp = dialog.findViewById(R.id.spin_manh_sp);
        spin_ten_sp = dialog.findViewById(R.id.spin_ten_sp);
         ed_gianhap_sp = dialog.findViewById(R.id.ed_gianhap_sp);
         ed_giaban_sp = dialog.findViewById(R.id.ed_giaban_sp);
@@ -192,12 +200,14 @@ public class FragmentSanPham extends Fragment {
         listNhaCungCap = new ArrayList<NhaCungCap>();
         nhacungcapDAO= new NhaCungCapDAO(context);
         listNhaCungCap = (ArrayList<NhaCungCap>) nhacungcapDAO.getAll();
+        nhaCCSpinnerAdapter = new NhaCCSpinnerAdapter(context, listNhaCungCap);
+        spin_manhacc_sp.setAdapter(nhaCCSpinnerAdapter);
 
         listNganhhang = new ArrayList<NganhHang>();
         nganhHangDAO= new NganhHangDAO(context);
         listNganhhang = (ArrayList<NganhHang>) nganhHangDAO.getAll();
-
-
+        nganhHangSpinnerAdapter = new NganhHangSpinnerAdapter(context, listNganhhang);
+        spin_manh_sp.setAdapter(nganhHangSpinnerAdapter);
 ///spinner
 
         List<String> listTenSP = Arrays.asList("CoCa", "NuocDua", "PepSi");
@@ -220,16 +230,36 @@ public class FragmentSanPham extends Fragment {
             }
         });
 
+        spin_manhacc_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                maNhaCC = listNhaCungCap.get(position).getMa_nhacc();
+//                Toast.makeText(context, "Chọn "+listLoaiSach.get(position).getTenLoai(), Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+        spin_manh_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                maNH = listNganhhang.get(position).getMa_nh();
+//                Toast.makeText(context, "Chọn "+listLoaiSach.get(position).getTenLoai(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         // kiem tra tupe insert hay update
 
         if (type != 0) {
             ed_ma_sp.setText(String.valueOf(item.getMa_sp()));
-            ed_manhacc_sp.setText(String.valueOf(item.getMa_nhacc()));
-            ed_manh_sp.setText(String.valueOf(item.getMa_nh()));
             int position = listTenSP.indexOf(item.getTen_sp());
 
             // Nếu tên sản phẩm có trong danh sách, chọn nó trên Spinner
@@ -244,14 +274,16 @@ public class FragmentSanPham extends Fragment {
             for (int i = 0; i < listNhaCungCap.size(); i++)
                 if (item.getMa_nhacc() == (listNhaCungCap.get(i).getMa_nhacc())) {
                     position = i;
-                    break;
                 }
+            Log.i("demo", "posSach " + position);
+            spin_manhacc_sp.setSelection(position);
+
             for (int i = 0; i < listNganhhang.size(); i++)
                 if (item.getMa_nh() == (listNganhhang.get(i).getMa_nh())) {
                     position = i;
-                    break;
                 }
-
+            Log.i("demo", "posSach " + position);
+            spin_manh_sp.setSelection(position);
         }
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,8 +296,8 @@ public class FragmentSanPham extends Fragment {
             public void onClick(View v) {
                 item = new SanPham();
                 item.setMa_sp(parseInt(ed_ma_sp.getText().toString(), 0));
-                item.setMa_nhacc(parseInt(ed_manhacc_sp.getText().toString(), 0));
-                item.setMa_nh(parseInt(ed_manh_sp.getText().toString(), 0));
+                item.setMa_nhacc(maNhaCC);
+                item.setMa_nh(maNH);
                 String tenSanPham = spin_ten_sp.getSelectedItem().toString();
                 item.setTen_sp(tenSanPham);
                 item.setGianhap_sp(ed_gianhap_sp.getText().toString());

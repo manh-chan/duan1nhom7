@@ -81,7 +81,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Quản lý sản phẩm"
                                 android:textSize="20dp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:gravity="center"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -101,6 +102,7 @@
                             android:gravity="center">
 
                             <ImageView
+                                android:id="@+id/btn_quanly_hd"
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:src="@drawable/icon_qlhoadon" />
@@ -108,9 +110,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Quản lý hạn sử dụng"
+                                android:text="Quản lý hạn ho don"
                                 android:textSize="20dp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:gravity="center"/>
                         </LinearLayout>
 
 
@@ -122,6 +125,7 @@
                             android:backgroundTint="#FBE4E6"
                             android:gravity="center">
                             <ImageView
+                                android:id="@+id/btn_quanly_hsd"
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:src="@drawable/icon_qlhansudung"/>
@@ -130,7 +134,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Quản lý hạn sử dụng"
                                 android:textSize="20dp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:gravity="center"/>
                         </LinearLayout>
 
                     </LinearLayout>

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "PNLIB";
-    public static final int DB_VERSION = 8;
+    public static final int DB_VERSION = 19;
     public DBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //Admin
         String createTableAdmin = "create table Admin(" +
                 "maAdmin TEXT PRIMARY KEY, " +
-                "hoTen_admin TEXT NOT NULL, " +
+                "hoten_admin TEXT NOT NULL, " +
                 "email_admin TEXT NOT NULL, " +
                 "sdt_admin TEXT NOT NULL, " +
                 "matkhau_admin TEXT NOT NULL)";
@@ -42,14 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         //Hoa don
-        String createTableHoaDon = "create table HoaDon(" +
-                "maHoaDon INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "maNhanVien TEXT REFERENCES NhanVien(maNhanVien), " +
-                "maKhachHang TEXT REFERENCES KhachHang(maKhachHang), " +
-                "thoigian_hd DATE NOT NULL, " +
-                "tongtien_hd INTEGER NOT NULL, " +
-                "soluong_sp INTEGER NOT NULL)";
-        db.execSQL(createTableHoaDon);
+
 
         //san pham
         String createTableSanPham = "create table SanPham(" +
@@ -81,8 +74,60 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(createTableNganhHang);
 
 
+        //Han Su Dung
+
+
+        String createTableHanSuDung = "create table HanSuDung(" +
+                "maHanSuDung INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "maSanPham TEXT REFERENCES SanPham(maSanPham), " +
+                "ngaysx_hsd TEXT NOT NULL, " +
+                "soluong_hsd TEXT NOT NULL)";
+        db.execSQL(createTableHanSuDung);
+
+        //Cong Viec
+
+
+        String createTableCongViec = "create table CongViec(" +
+                "maCongViec INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "maAdmin TEXT REFERENCES Admin(maAdmin), " +
+                "maNhanVien TEXT REFERENCES NhanVien(maNhanVien), " +
+                "tieude_cv TEXT NOT NULL, " +
+                "ghichu_cv TEXT NOT NULL, " +
+                "thoihan_cv TEXT NOT NULL, " +
+                "trangthai_cv TEXT NOT NULL)";
+        db.execSQL(createTableCongViec);
+
+
+
+//          Hoa Don
+
+        String createTableHoaDon = "create table HoaDon(" +
+                "maHoaDon INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "maNhanVien TEXT REFERENCES NhanVien(maNhanVien), " +
+                "maKhachHang TEXT REFERENCES KhachHang(maKhachHang), " +
+                "thoigian_hd TEXT NOT NULL, " +
+                "soluong_sp TEXT NOT NULL, " +
+                "khuyenmai_hd DOUBLE NOT NULL, " +
+                "tongtien_hd DOUBLE NOT NULL)";
+        db.execSQL(createTableHoaDon);
+
+        db.execSQL("INSERT INTO HoaDon (maHoaDon,maNhanVien,maKhachHang,thoigian_hd,soluong_sp,khuyenmai_hd,tongtien_hd) VALUES" +
+                "('45745','8888','1111','12/05/2023','4','40000','1200000')");
+
+        db.execSQL("INSERT INTO CongViec (maCongViec,maAdmin,maNhanVien,tieude_cv,ghichu_cv,thoihan_cv,trangthai_cv) VALUES" +
+                "('4444','32114','8888','Hop nhan Vien','Cuoc hop bat buoc','12/05/2023','Dang lam')");
+
+        db.execSQL("INSERT INTO HanSuDung (maHanSuDung,maSanPham,ngaysx_hsd,soluong_hsd) VALUES" +
+                "('11343','1','18/05/2004','4')");
+
         db.execSQL("INSERT INTO Admin (maAdmin,hoten_admin,email_admin,sdt_admin,matkhau_admin) VALUES" +
                 "('32114','Phạm Kiều Trinh','manh@gmail.com','0399898172','0399898172')");
+
+        db.execSQL("INSERT INTO KhachHang (maKhachHang,hoTen_kh,sdt_kh) VALUES" +
+                "('1111','Kieu Anh Tuan','0399898172')");
+
+        db.execSQL("INSERT INTO NhanVien (maNhanVien,hoTen_nv,email_nv,sdt_nv,matKhau_nv) VALUES" +
+                "('8888','Tran Duy Manh','manh@gmail.com','0399898172','32114')");
 
         db.execSQL("INSERT INTO SanPham (maSanPham,maNhaCC, maNganhHang, ten_sp, gianhap_sp, giaban_sp, soluong_sp, trangthai_sp) VALUES " +
                 "('1','2', '3', 'NuocCoCa', '10000', '11000', '200', 'true')," +
@@ -110,6 +155,8 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("drop table if exists SanPham");
             db.execSQL("drop table if exists NhaCungCap");
             db.execSQL("drop table if exists NganhHang");
+            db.execSQL("drop table if exists HanSuDung");
+            db.execSQL("drop table if exists CongViec");
             onCreate(db);
         }
     }

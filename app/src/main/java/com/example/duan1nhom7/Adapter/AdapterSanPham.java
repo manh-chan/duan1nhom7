@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.duan1nhom7.DAO.NganhHangDAO;
 import com.example.duan1nhom7.DAO.NhaCungCapDAO;
+import com.example.duan1nhom7.FragmentNhaCC;
 import com.example.duan1nhom7.FragmentSanPham;
 import com.example.duan1nhom7.Model.NganhHang;
 import com.example.duan1nhom7.Model.NhaCungCap;
@@ -77,15 +78,15 @@ ImageView  imgProduct;
 
 
             tv_ten_sp = v.findViewById(R.id.tv_ten_sp);
-            tv_ten_sp.setText("Tên san pham: " + item.getTen_sp());
+            tv_ten_sp.setText("Tên Sản Phẩm: " + item.getTen_sp());
             tv_gianhap_sp = v.findViewById(R.id.tv_gianhap_sp);
-            tv_gianhap_sp.setText("Giá nhap: " + item.getGianhap_sp());
+            tv_gianhap_sp.setText("Giá Nhập: " + item.getGianhap_sp());
             tv_giaban_sp = v.findViewById(R.id.tv_giaban_sp);
-            tv_giaban_sp.setText("Gia ban: " +item.getGiaban_sp());
+            tv_giaban_sp.setText("Gia Bán: " +item.getGiaban_sp());
             tv_soluong_sp = v.findViewById(R.id.tv_soluong_sp);
-            tv_soluong_sp.setText("Năm xuất bản: "+item.getSoluong_sp());
+            tv_soluong_sp.setText("Số Lượng: "+item.getSoluong_sp());
             tv_trangthai_sp = v.findViewById(R.id.tv_trangthai_sp);
-            tv_trangthai_sp.setText("Năm xuất bản: "+item.getTrangthai_sp());
+            tv_trangthai_sp.setText("Trạng Thái: "+item.getTrangthai_sp());
             imgProduct = v.findViewById(R.id.img_sp);
 // Dynamically set the image based on the product name
             int imageResId = getImageResourceId(item.getTen_sp());

@@ -23,11 +23,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_manhacc_sp"
+        <Spinner
+            android:id="@+id/spin_manhacc_sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ma nha cung cap"/>
+            android:layout_marginBottom="20dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -37,11 +38,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_manh_sp"
+        <Spinner
+            android:id="@+id/spin_manh_sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ma nganh hang"/>
+            android:layout_marginBottom="20dp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
