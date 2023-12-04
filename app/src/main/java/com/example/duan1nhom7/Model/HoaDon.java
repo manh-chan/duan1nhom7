@@ -79,9 +79,6 @@ public class HoaDon {
         this.khuyenmai_hd = khuyenmai_hd;
     }
 
-    public double KhuyenMai(){
-        double total =  tongtien_hd;
-        return total - khuyenmai_hd;
-    }
+
 
 }

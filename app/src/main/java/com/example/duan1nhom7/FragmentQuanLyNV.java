@@ -53,7 +53,7 @@ public class FragmentQuanLyNV extends Fragment {
     EditText ed_ma_nv, ed_ten_nv,ed_email_nv,ed_sdt_nv,ed_pass_nv;
     Button btnSave, btnCancel;
 
-
+    private boolean isAdmin = true;  // Mặc định là quản lý
     private SearchView searchView;
 
     public FragmentQuanLyNV() {

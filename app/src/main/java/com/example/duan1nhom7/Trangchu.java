@@ -31,7 +31,7 @@ public class Trangchu extends AppCompatActivity {
     View mHeaderView;
     TextView tvUser;
     NavigationView nv;
-    ImageView btn_ql_sp ,btn_ql_hsd,btn_ql_hd;
+    ImageView btn_ql_sp ,btn_ql_hsd,btn_ql_hd,btn_thongke;
     private ViewPager viewPager;
     private ImageSliderAdapter adapter;
     private int currentPage = 0;
@@ -84,6 +84,16 @@ public class Trangchu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadFragment(fragmenthoadon);
+            }
+        });
+
+        //Thong ke
+        FragmentThongKe fragmentthongke = new FragmentThongKe();
+        btn_thongke =findViewById(R.id.btn_thongke);
+        btn_thongke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(fragmentthongke);
             }
         });
 

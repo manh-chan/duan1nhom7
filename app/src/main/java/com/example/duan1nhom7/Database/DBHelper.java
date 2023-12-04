@@ -111,6 +111,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tongtien_hd DOUBLE NOT NULL)";
         db.execSQL(createTableHoaDon);
 
+
         db.execSQL("INSERT INTO HoaDon (maHoaDon,maNhanVien,maKhachHang,thoigian_hd,soluong_sp,khuyenmai_hd,tongtien_hd) VALUES" +
                 "('45745','8888','1111','12/05/2023','4','40000','1200000')");
 

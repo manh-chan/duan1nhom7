@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="7dp"
         android:background="@drawable/button_back">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +24,7 @@
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/tv_ma_cv"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ma Cong Viec:"
                     android:textColor="@color/black"

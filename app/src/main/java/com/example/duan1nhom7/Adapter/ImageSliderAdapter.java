@@ -9,7 +9,7 @@ import com.example.duan1nhom7.SlideFragment;
 
 public class ImageSliderAdapter extends FragmentPagerAdapter {
 
-    private int[] images = {R.drawable.logo, R.drawable.logo, R.drawable.logo};
+    private int[] images = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
 
     public ImageSliderAdapter(FragmentManager fm) {
         super(fm);

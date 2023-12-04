@@ -18,7 +18,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/icon_qlnhacungcap"
                 android:layout_gravity="center"
                 android:id="@+id/img_nhacc"
                 android:layout_margin="3dp"/>
@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="85dp"
                 android:layout_weight="1"
-                android:src="@drawable/icon_xoa"/>
+                android:src="@drawable/ic_xoa"/>
 
         </LinearLayout>
     </LinearLayout>

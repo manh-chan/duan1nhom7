@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="50dp"
+                android:layout_width="30dp"
                 android:layout_height="100dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/icon_qlhansudung"
                 android:layout_gravity="center"
                 android:id="@+id/img_nhacc"
                 android:layout_margin="3dp"/>
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="5dp"
-                android:layout_weight="10"
+                android:layout_weight="3"
                 android:layout_gravity="center">
                 <TextView
                     android:id="@+id/tv_ma_hsd"
@@ -45,14 +45,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:text="Ma San Pham"/>
-                <TextView
-                    android:id="@+id/tv_ngaysx_hsd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:text="Ngay San Xuat:"/>
+
                 <TextView
                     android:id="@+id/tv_soluong_hsd"
                     android:layout_width="match_parent"
@@ -62,13 +55,31 @@
                     android:textSize="14dp"
                     android:text="So luong:"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/calendar"/>
+                <TextView
+                    android:id="@+id/tv_ngaysx_hsd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="Ngay San Xuat:"/>
+            </LinearLayout>
             <ImageView
-                android:layout_marginTop="10dp"
                 android:id="@+id/imgDeleteLS"
                 android:layout_width="0dp"
-                android:layout_height="85dp"
+                android:layout_height="30dp"
                 android:layout_weight="1"
-                android:src="@drawable/icon_xoa"/>
+                android:layout_gravity="center"
+                android:src="@drawable/ic_xoa"/>
 
         </LinearLayout>
     </LinearLayout>

@@ -12,7 +12,8 @@
         android:background="@drawable/button_back">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -21,71 +22,151 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:layout_weight="10"
+                android:layout_weight="8"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_ma_hd"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ma Hoa Don:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_manv_hd"
-                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_qlhoadon"/>
+                    <TextView
+                        android:id="@+id/tv_ma_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ma Hoa Don:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ma Nhan Vien:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_qlnhanvien"/>
+                    <TextView
+                        android:id="@+id/tv_manv_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ma Nhan Vien:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_khachhang"/>
+                    <TextView
+                        android:id="@+id/tv_makh_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ma Khach Hang:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_makh_hd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ma Khach Hang:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_thoigian_hd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Thoi Gian: "
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
 
 
-                <TextView
-                    android:id="@+id/tv_soluong_hd"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="So luong hoa don:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_khuyenmai_hd"
-                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_qlhoadon"/>
+                    <TextView
+                        android:id="@+id/tv_soluong_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="So luong hoa don:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Khuyen Mai Hoa don:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_tongtien_hd"
-                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_qlhoadon"/>
+
+                    <TextView
+                        android:id="@+id/tv_khuyenmai_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Khuyen Mai Hoa don:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tong Tien:"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_money"/>
+
+                    <TextView
+                        android:id="@+id/tv_tongtien_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tong Tien:"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
 
 
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="bottom"
+                android:layout_margin="5dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="bottom">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/calendar"/>
+                    <TextView
+                        android:id="@+id/tv_thoigian_hd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thoi Gian: "
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

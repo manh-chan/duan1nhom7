@@ -66,7 +66,7 @@ public class AdapterHanSuDung extends ArrayAdapter<HanSuDung> {
             }
 
             tv_ma_hsd.setText("Mã Hạn Sử Dụng: " + item.getMa_hsd() + "");
-            tv_ngaysx_hsd.setText("Tên Sản Phẩm: " + item.getNgaysx_hsd());
+            tv_ngaysx_hsd.setText("Ngày sản xuất" + item.getNgaysx_hsd());
             tv_soluong_hsd.setText("Giá Nhập: " + item.getSoluong_hsd());
 
             // Thiết lập người nghe sự kiện cho imgDel

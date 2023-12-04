@@ -14,10 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NhanVienDAO {
+    DBHelper dbHelper;
     private static SQLiteDatabase db;
 
     public NhanVienDAO(Context context) {
-        DBHelper dbHelper = new DBHelper(context);
+        dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
     }
 
@@ -69,6 +70,35 @@ public class NhanVienDAO {
         }
         return 1;
     }
+
+    public boolean Register(String username,String password,String hoten,String email,String sdt){
+        SQLiteDatabase sqLiteDatabase=dbHelper.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("maNhanVien",username);
+        contentValues.put("hoTen_nv",hoten);
+        contentValues.put("email_nv",email);
+        contentValues.put("sdt_nv",sdt);
+        contentValues.put("matKhau_nv",password);
+
+
+        long check=sqLiteDatabase.insert("NhanVien",null,contentValues);
+        return check!=-1;
+
+    }
+
+
+    //Quen mat khau
+    public String ForgotPass(String email){
+        SQLiteDatabase sqLiteDatabase=dbHelper.getReadableDatabase();
+        Cursor cursor=sqLiteDatabase.rawQuery("SELECT sdt_nv FROM NhanVien WHERE maNhanVien=?",new String[]{email});
+        if (cursor.getCount()>0){
+            cursor.moveToFirst();
+            return cursor.getString(0);
+        }else{
+            return "";
+        }
+    }
+
 
     @SuppressLint("Range")
     private static List<NhanVien> getData(String sql, String... selectionArgs) {
