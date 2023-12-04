@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lấy lại mật khẩu"
+        android:textColor="#E67DA1"
+        android:textSize="26sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập mã nhân viên"/>
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E67DA1"
+        app:backgroundTint="@null"
+        android:text="Gửi mật khẩu"
+        android:textAllCaps="true"/>
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E67DA1"
+        app:backgroundTint="@null"
+        android:text="Hủy"
+        android:textAllCaps="true"/>
+
+</LinearLayout>
